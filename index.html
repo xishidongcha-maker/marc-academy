@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Marc Academy - K-12 Tutors | 国际课程辅导专家</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+
+        /* 顶部导航栏 */
+        header {
+            background: #fff;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            min-height: 76px;
+            border-bottom: 1px solid #eef2f5;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .logo {
+            background: #1A3A63;
+            color: #fff;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            padding: 6px 14px;
+            width: auto;
+            min-width: 130px;
+            height: auto;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .logo-marc {
+            font-size: 26px;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: 2.2px;
+            text-align: center;
+            white-space: nowrap;
+            color: #FFFFFF;
+            margin-bottom: 2px;
+        }
+
+        .logo-academy {
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-align: center;
+            white-space: nowrap;
+            color: #F0F4FA;
+            background: transparent;
+            width: 100%;
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                min-width: 110px;
+                padding: 5px 10px;
+            }
+            .logo-marc {
+                font-size: 22px;
+                letter-spacing: 1.8px;
+            }
+            .logo-academy {
+                font-size: 13px;
+                letter-spacing: 0.3px;
+            }
+        }
+
+        /* 首屏横幅 */
+        .banner {
+            background: linear-gradient(135deg, #1F6390 0%, #2482C7 100%);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+        }
+        .banner h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+        .banner h2 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.4;
+        }
+        .banner p {
+            font-size: 1rem;
+            margin-top: 1rem;
+            opacity: 0.9;
+        }
+        .btn {
+            display: inline-block;
+            background: #D4AF37;
+            color: #1A2C3E;
+            padding: 12px 32px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 40px;
+            margin: 1rem 0 0.5rem;
+            transition: 0.2s;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .btn:hover {
+            background: #c2a12e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        /* 通用区块 */
+        .section {
+            padding: 3rem 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #1A3A63;
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+        }
+
+        /* 导师网格 */
+        .tutor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .tutor-card {
+            background: #ffffff;
+            border: 1px solid #e9edf2;
+            border-radius: 20px;
+            padding: 1.6rem 1.2rem;
+            transition: all 0.25s ease;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.02);
+            text-align: center;
+        }
+        .tutor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            border-color: #cbdbe0;
+        }
+        .certified {
+            color: #2482C7;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .tutor-card p:nth-of-type(2) {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1A3A63;
+            margin-bottom: 0.5rem;
+        }
+        .tutor-card p:nth-of-type(3),
+        .tutor-card p:nth-of-type(4) {
+            font-size: 0.9rem;
+            color: #4a627a;
+            margin-top: 0.3rem;
+        }
+
+        /* 流程模块 */
+        .process {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .process-step {
+            background: #F9FBFE;
+            padding: 1.5rem 1.8rem;
+            border-radius: 24px;
+            border-left: 6px solid #2482C7;
+            transition: 0.2s;
+        }
+        .process-step h3 {
+            font-size: 1.5rem;
+            color: #1A3A63;
+            margin-bottom: 0.6rem;
+        }
+        .process-step p {
+            color: #2c3e50;
+            line-height: 1.5;
+        }
+
+        /* 用户评价 */
+        .testimonial {
+            background: #F4F8FE;
+            padding: 2rem 2.5rem;
+            border-radius: 32px;
+            margin: 1.5rem 0;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+            border: 1px solid #e2edf7;
+        }
+        .testimonial p:first-child {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            font-style: normal;
+            color: #1E2F41;
+            font-weight: 500;
+        }
+        .testimonial p:last-child {
+            margin-top: 1rem;
+            font-weight: 600;
+            color: #2482C7;
+        }
+
+        .banner .btn + p {
+            font-size: 0.9rem;
+            margin-top: 1.2rem;
+        }
+
+        /* ========= 全新美化联系方式区域 ========= */
+        .contact-section {
+            background: linear-gradient(145deg, #F4F9FF 0%, #E9F2FA 100%);
+            margin: 2rem auto;
+            border-radius: 48px;
+            max-width: 1280px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .contact-wrapper {
+            padding: 3rem 2.5rem;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            justify-content: space-between;
+            align-items: stretch;
+        }
+
+        /* 左侧信息区域 - 网格布局更整齐 */
+        .contact-info {
+            flex: 2;
+            min-width: 260px;
+            background: rgba(255,255,255,0.6);
+            backdrop-filter: blur(2px);
+            border-radius: 36px;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+        }
+
+        .contact-info h3 {
+            font-size: 1.7rem;
+            color: #1A3A63;
+            margin-bottom: 1.8rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 5px solid #D4AF37;
+            padding-left: 20px;
+        }
+
+        /* 联系详情网格布局 - 整洁美观 */
+        .contact-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1rem;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 60px;
+            transition: all 0.25s ease;
+            border: 1px solid #eef2fa;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .contact-detail:hover {
+            transform: translateY(-2px);
+            border-color: #cde0f0;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+            background: #ffffff;
+        }
+
+        .contact-detail span:first-child {
+            font-size: 1.4rem;
+            min-width: 36px;
+            text-align: center;
+        }
+
+        .contact-detail a, .contact-detail span:last-child {
+            color: #1f3b4c;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.98rem;
+            word-break: break-word;
+        }
+
+        .contact-detail a:hover {
+            color: #2482C7;
+        }
+
+        /* 微信高亮专属样式 */
+        .wechat-badge {
+            background: #EAF5EA;
+            border-radius: 60px;
+            padding: 0.2rem 0.6rem;
+            font-weight: 600;
+            color: #2A6B2F;
+        }
+
+        /* 右侧 CTA 区域 */
+        .contact-cta {
+            flex: 1.2;
+            min-width: 260px;
+            background: linear-gradient(125deg, #1A3A63 0%, #1F4E7A 100%);
+            border-radius: 36px;
+            padding: 2rem 1.8rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 12px 24px -8px rgba(26,58,99,0.3);
+            transition: transform 0.2s;
+        }
+
+        .contact-cta:hover {
+            transform: scale(1.01);
+        }
+
+        .contact-cta p:first-child {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #FFE6B3;
+            margin-bottom: 1rem;
+        }
+
+        .contact-btn {
+            background: #D4AF37;
+            color: #1A2C3E;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: 800;
+            display: inline-block;
+            margin: 1rem 0;
+            transition: 0.2s;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border: none;
+        }
+
+        .contact-btn:hover {
+            background: #FFD966;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+        }
+
+        .wechat-mini-card {
+            margin-top: 1.2rem;
+            background: rgba(255,255,240,0.15);
+            backdrop-filter: blur(4px);
+            border-radius: 50px;
+            padding: 0.6rem 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .divider-custom {
+            margin: 1.2rem 0 0.8rem;
+            border: 0;
+            height: 1px;
+            background: radial-gradient(circle, #bdd4e8, transparent);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #F8FAFE;
+            color: #6c7a8e;
+            border-top: 1px solid #eef2f8;
+            font-size: 0.8rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 2rem 1.2rem;
+            }
+            .banner h1 {
+                font-size: 1.6rem;
+            }
+            .section h2 {
+                font-size: 1.6rem;
+            }
+            .process-step h3 {
+                font-size: 1.3rem;
+            }
+            .contact-wrapper {
+                padding: 2rem 1.2rem;
+            }
+            .contact-container {
+                flex-direction: column;
+            }
+            .contact-info h3 {
+                font-size: 1.4rem;
+            }
+            .contact-cta p:first-child {
+                font-size: 1.3rem;
+            }
+            .contact-details-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header>
+        <div class="logo">
+            <div class="logo-marc">Marc</div>
+            <div class="logo-academy">Academy</div>
+        </div>
+    </header>
+
+    <!-- 首屏横幅 -->
+    <div class="banner">
+        <h1>Expert Educators in Canada</h1>
+        <h2>Become an A-Grade Student With our Outstanding, Professional and Highly-Qualified Tutors.</h2>
+        <p>Quality Education for Chinese, Canadian & American curriculums</p>
+        <p><h2>🚀 马上提高成绩  &emsp;  📚 培养学科兴趣  &emsp;  ✨ 挖掘自身潜质</h2></p>
+    </div>
+
+    <!-- 导师展示 -->
+    <div class="section">
+        <h2>Some of our Highly Experienced Tutors</h2>
+        <div class="tutor-grid">
+            <div class="tutor-card">
+                <p class="certified">Marc Academy Certified</p>
+                <p>George Z</p>
+                <p>PhD in Chinese literature</p>
+                <p>School of Liberal Arts</p>
+            </div>
+            <div class="tutor-card">
+                <p class="certified">Marc Academy Certified</p>
+                <p>Amber T</p>
+                <p>Masters in English Language and Linguistics</p>
+                <p>Department of English</p>
+            </div>
+            <div class="tutor-card">
+                <p class="certified">Marc Academy Certified</p>
+                <p>Mathieu L</p>
+                <p>PhD in Mathematics</p>
+                <p>Department of Mathematics</p>
+            </div>
+            <div class="tutor-card">
+                <p class="certified">Marc Academy Certified</p>
+                <p>Marc W</p>
+                <p>PhD Candidate in Physics</p>
+                <p>College of Science</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 辅导科目及费用 -->
+    <div class="section">
+        <h2>📖 辅导科目及费用</h2>
+        <div class="process">
+            <div class="process-step">
+                <h3>📚 小学科目：语文、数学、英语</h3>
+                <p>费用：US$ 80/hour (折合 CA$112/hour 或 CNY 550/hour)， 每次时长一个半小时.</p>
+                <br> 
+                <h3>📖 中学科目：语文、数学、英语、物理、化学</h3>
+                <p>费用：US$ 100/hour (折合 CA$140/hour 或 CNY 680/hour)， 每次时长一个半小时.</p>
+            </div>
+            <div class="process-step">
+                <h3>🧮 小学奥数</h3>
+                <p>费用：US$ 100/hour (折合 CA$140/hour 或 CNY 680/hour)， 每次时长两小时.</p>
+                <br>
+                <h3>🏅 中学奥数</h3>
+                <p>费用：US$ 150/hour (折合 CA$210/hour 或 CNY 1020/hour)， 每次时长两小时.</p>
+            </div>
+            <div class="process-step">
+                <h3>✍️ 大学论文写作指导、北美留学申请服务</h3>
+                <p>费用：面谈，根据需求定制方案.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 用户评价 -->
+    <div class="section">
+        <h2>💬 家长与学生真实反馈</h2>
+        <div class="testimonial">
+            <p>"跟着 Marc Academy 的老师学习已有半年，课堂讲解通俗易懂，还会针对性梳理知识难点。原本薄弱的科目稳步提升，做题思路也清晰了很多。老师耐心又负责，课后有疑问也会及时解答。很庆幸选择这里的辅导，学习效率大幅提高，真心推荐给有需要的同学。"</p>
+            <p>— 王泽翰, 学生, 中国</p>
+        </div>
+        <div class="testimonial">
+            <p>"考前特意报名了 Marc Academy 的辅导，导师精准抓住我的知识漏洞，定制专属学习计划。短短一段时间，我的成绩有了明显进步。线上授课灵活方便，互动感也很强，完全不输线下课堂。专业的教学加上贴心的指导，让我对学习更有信心了。"</p>
+            <p>— 陈俊鹏, 学生, 中国</p>
+        </div>
+        <div class="testimonial">
+            <p>"I was never in favor of hiring an online tutor. It wasn't until I hired a tutor from Marc Academy that I realized online tutoring is as effective as face-to-face tutoring."</p>
+            <p>— Alex Scott, Student, Canada</p>
+        </div>
+        <div class="testimonial">
+            <p>"My daughter improved from C+ to A- in just 3 months. The tutors are incredibly patient and tailor every lesson to her needs. Highly recommended!"</p>
+            <p>— Mrs. Wyo, Parent, USA</p>
+        </div>
+    </div>
+
+    <!-- ========= 全新美化版 联系我们 栏目 ========= -->
+    <div class="contact-section">
+        <div class="contact-wrapper">
+            <div class="contact-container">
+                <!-- 左侧信息区域：整齐卡片式 -->
+                <div class="contact-info">
+                    <h3>
+                        <span>📬</span> Get in touch · 联系我们
+                    </h3>
+                    <div class="contact-details-grid">
+                        <div class="contact-detail">
+                            <span>✉️</span>
+                            <a href="mailto:funperson@126.com">funperson@126.com</a>
+                        </div>
+                        <div class="contact-detail">
+                            <span>📞</span>
+                            <a href="tel:+12509863958">+1 (250) 9863-958</a>
+                        </div>
+                        <div class="contact-detail">
+                            <span>🛰️</span>
+                            <span class="wechat-badge">微信: mathieu_lin (优先回复)</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span>📍</span>
+                            <span>Online Tutoring — 中国 · 加拿大 · 美国</span>
+                        </div>
+                            <div class="contact-detail">
+                            <span>📍</span>
+                            <span> In-person Tutoring — Victoria, BC, Canada </span>
+                        </div>
+                        <div class="contact-detail">
+                            <span>💬</span>
+                            <span>免费学业评估 + 24h 邮件/微信咨询</span>
+                        </div>
+                    </div>
+                   
+                </div>
+
+                <!-- 右侧行动号召区域 -->
+                <div class="contact-cta">
+                    <p>🎯 开启提分之旅</p>
+                    <a href="#" class="contact-btn">📢 免费咨询 </a>
+                    <div class="wechat-mini-card">
+                        <span>🛰️</span> 微信：mathieu_lin
+                        <span style="font-size:0.75rem;">｜ 1对1答疑</span>
+                    </div>
+                    <p style="margin-top: 1.2rem; font-size:0.8rem; color:#C0DFFF;">我们会在24小时内回复您</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Marc Academy — Empowering Students Across China, Canada and America </p>
+    </footer>
+</body>
+</html>
